@@ -1,0 +1,75 @@
+Assessment.
+
+Q2. Imagine you are setting up a wireless network for a client. How might you evaluate
+the reliability of your network? You should think about the factors that impact the
+performance of the network in comparison of wired networks.
+
+A2. The placement of access points should take into account the surroundings and take note of
+interference and absorbtion object. When placeing an access point you should walk around with a
+device to make sure everywhere you want to use it has no less than half wifi bars/strength. For
+a wireless network it should not be a primary link (such as building to building) so there should
+still be some physical cable to a location that will use wifi. Another factor to take into account
+is if there will be many users - RTS/CTS should be turned on. Interference Robustness feature
+of AP should also be enabled so that a device does not use the 1Mbps bit rate which is often
+interrupted. Which 802.11 standard used is important because they run at different GHz bands
+(higher frequency = less interference from customer devices), different speeds, different ranges,
+and power consumptions (higher frequency = more power to broadcast).
+
+Q3. Add notes for 802.11ac to Table 5.1 “Comparison of Different Wi-Fi Protocols” (page
+67).
+
+A3.802.11ac
+Max signal rate: 1.7 - 2.5 theoretical speed.   
+Operating frequency band: 5GHz
+Range: 100m
+Non-overlapping channgels: 
+Interference sources: cordless phone.
+Standard approved: Yes
+WiFi CERTIFIED: Yes
+
+
+Q4. Suggest a location for a single access point to satisfy the needs of the site survey
+shown in Figure 5.1 “Wireless Site Survey” (page 81).
+
+A4.Above the stairs on floor 1.
+
+Q5. [Optional] If you have a WPA2-capable wireless-enabled laptop, try registering it for
+use on the student wireless network. This will be using WPA2-Enterprise.
+
+A5.
+
+Q6. Explain the relationships between the following terms, you may need to do some
+research: WEP, WPA, WPA2 and 802.11i.
+Explain the relationships between the following terms, you may need to do some
+research: RADIUS, 802.1X, EAP and EAP-TTLS.
+
+A6. They are security protocols. WEP uses a pre-shared key to control access and uses
+the key to encrypt packets. The packets are decrypted at the access point. WEP did not
+change the keys peridoically which was a big crptographic weakness (collect enough packets
+that have been encrypted by the same key = crack it).
+WPA is an improvement on WEP and changes the keys periodically (default key timeout is 60min,
+good practice is 15min). WPA2 is a higher level preotection than WPA (uses TKIP or the AES but
+before the standard was complete) as it uses the Advanced Encrytion Standard (AES) - the 802.11i
+standard. Not all deveices (older devices) are able to use 802.11i so WPA2 also offers
+encryption with TKIP - WPA2 TKIP/AES. 
+
+Q7. Some new Wi-Fi devices often come with a feature called “Wi-Fi Protected Setup”
+make it easier to set up a secure wireless connection. Do some research (you must
+consult and cite only authoritative sources) and describe how this system works; in
+particular, describe the PIN and PBC methods. The Wi-Fi Alliance have a useful
+downloadable presentation Wi-Fi Protected Setup18 covering this technology. There
+is also a whitepaper available, which requires registration, but goes into more
+detail than the downloadable presentation.
+
+A7. Ref - "http://www.wi-fi.org/knowledge-center/faq/how-does-wi-fi-protected-setup-work"
+
+Push Button Configuration (PBC): There is a button on the access point/wireless router that
+a user can press to connect devices. The issue with this is that any device within the
+'two minute period' can also join which is baaaad. - not supported on all devices.
+
+PIN entry: In all Wi-fi protected setup networks a PIN is required. The PIN is unique and
+is usually a sticker on the access point/router, or for some devices such as TV or screen
+the PIN can be dynamically generated. It is used to make sure that only the intended
+device is added to the network and stops unintended people from gaining access without
+the PIN. - supported on all devices. 
+

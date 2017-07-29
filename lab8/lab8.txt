@@ -1,0 +1,122 @@
+File System
+-----------------
+Read the ls(1) to familiarise yourself with the available options (don’t try to
+remember them all, except -l (that’s lowercase L, not I), -R, -a and -h).
+Write down the ls command you would use to do the following; most of them will
+require the -l option and generally some others:
+
+Q1.
+
+(a) List the contents of your home directory recursively. You can use either
+«~» or «$HOME» to refer to your home directory from the shell.
+
+
+Aa. ls -R ~ | less
+
+
+(b). List all files, including hidden files and directories, in your home directory,
+non-recursively. Hidden files or directories are those that begin with a dot, and
+are not usually shown in ls output.
+
+Ab. ls -a
+
+
+(c) List the contents of /lib using ls -l /lib. What is meant by the «foo -> bar»
+notation?
+
+Ac. It means the listed file is a symbolic link that points to the file. If the file is open
+the file that the symbolic link points to will be opened.
+
+
+(d) List the files in your home directory, with file sizes shown with human-friendly
+units (ie. bytes, kilobytes, megabytes, gigabytes).
+
+
+Ad. ls -lh
+
+
+
+(e) List the info about a directory, and only that directory, without ls recursing
+into that directory. In other words, the permissions etc. of the directory itself,
+not the contents of the directory.
+The “size” of a directory in the ls listing does not tell you how much disk space
+the contents of the directory consume. Use du -s directory to measure that.
+
+Ae. ls -ld Documents
+
+Special Permissions
+---------------------
+
+Q1. Fill in the blanks to convert between octal and symbolic notation; all but the last
+two you would be likely to find on a real system.
+
+r = 4, w = 2, x = 1
+
+A1.
+644  = rw-r--r--
+755  = rwxr-xr-x
+1777 = rwxrwxrwt
+4755 = rwsr-xr-x 
+3070 = ---rws--T 
+2060 = ---rwS---
+
+Q2. If you look around the typical Unix filesystem long enough, you find some unusual
+permissions. Take for example the permissions that are classically set on the files in
+/usr/games/, and the permissions on some of the files in /var/games/.
+
+The files in /var/games/ are scoreboard files, which need to be updatable by the
+games when run as different users. However, we don’t want users to be able to edit
+them by themselves, only by the games that the user is running. Looking at these
+permissions, describe how this works. Hint: users are not meant to be in the
+‘games’ group in order to play games; indeed that would be rather bad.
+
+When a user runs the game they get the privileges of the game they get the permissions of the group games while in the game. This allows them to write and execute them while in the game but outside of the game they don’t have permission. 
+
+Q3.
+Assume you see a directory which ls -l describes as «drwxrwsr-x». Write a
+paragraph to completely describe the effect of this permission set.
+You should consult ls(1) for some of the subtleties of the printed permissions with
+regard to special bits and execute bits, if you haven’t already.
+
+
+A3. The creator of the directory can read, write, and execute (traverse) the directory. Members of the group can read, write, and execute (traverse) the dir, and because the SetGID is set then any files that are created within this directory will become owned by the group. Anyone outside of the group can read and execute (traverse) dir but not write/change them. 
+
+
+Q4. Give a typical default umask value and describe its effect.
+
+A4. 022. When a file is created it gets the permissions 666, and a directory gets 777. The unmask value is then subtraced to give 644, and 755. This makes the files/folders safe from manipulation from unwanted users. This value can be changed depending on the situation and/or security wanted.
+
+
+
+BACKUPS
+—————————
+
+1. Create backup
+
+
+Q2.
+The above command likely has a security problem, in that the archive does not have
+a suitable mode when it is being created. This creates a window of opportunity for
+someone to open the file and read the contents before tar has finished and you have
+fixed the permissions.
+How can you fix this problem? (Hint: use umask).
+
+A2. Change unmask value to 066 ?
+
+Q3. 
+Part of a diet of the system administrator is to look at various products and evaluate
+their usefulness to solve particular situations. Have a look at the homepage of
+rdiff-backup9. Compare the features of rdiff-backup to the features we desire, listed
+above, marking each with a tick, cross or question mark, for “meets requirement”,
+“does not meet requirement”, or “unsure” respectively. Do you think rdiff-backup
+meets our stated needs?
+
+A3.
+Remote:Yes
+Cheap to implement: Yes 
+Plentiful snapshots:
+Easy to restore: Yes
+Secure:Yes
+Maintain file meta-data: Yes
+Selection of items to include/exclude: 
+Suitable for very large files: Yes

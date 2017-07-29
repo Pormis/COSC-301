@@ -1,0 +1,39 @@
+
+Administrator                   Ryan
+Release information             Linux server 14.04
+Recent changes                  
+       29.03.17   - installed OS
+                  - uncommented grub terminal console   
+                  - updateed grub
+                  - added network
+                  - renamed network
+                  - redirected update mirror
+                  - installed updates
+                  - mount cdrom
+                  - Guest additions
+                  - failed to mount /media/host
+
+hardware                        1core,1GB,virtual machine
+Filesystems                     ext4 and swap
+Network interfaces              cabled to outside
+admin rights                    sudo
+software updates                http://gallardo.otago.ac.nz:3142/ubuntu/
+
+CPU MEM:client
+high singular processing capability, less multiprocessing capability mostly 64 bit now.
+standard ram is ample for most consumers (8gb DDR3 1600MHz) possibly even single channel.
+
+ACCESS:cleint
+direct access, on a desk or possibly mobile
+
+Licences:Client
+if part of a company/organisation they probably will be bulk licenced,
+for individual user will most likely come with the machine
+
+Management: CLient
+could be on a domain to allow users to log in at different stations without worrying about
+transferring data, or if each person is assigned a desk the domain may not be neccesarry.
+rarely will clients manage their own machines, we hav SA's for that task.
+
+Security: Server
+maximum security, convenience does not exist. SA has full control of the security...

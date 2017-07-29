@@ -1,0 +1,77 @@
+Q1. Describe multicast, as opposed to unicast and broadcast.
+Also, give an example of an IPv6 multicast address.
+
+Unicast involves sending one message to one receiver. If the message needs to go to multiple receives it
+has to send multiple unicast messages. Broadcast is where a packet is broadcast to all destinations on a
+network. Multicast uses groups when sending messages in the network. If the multicast frame is received by the switch it will send it to all devices in the network, but only those in the related multicast group
+will process it (not in broadcast all devices process the message). e.g. ff02::/8
+
+
+Q2. Give an example of a link-local IPv6 address. Briefly describe how it is generally
+formed from the Ethernet MAC address.
+ff02::1 - the all hosts multicast address prefix
+full - ff02::1:ffgg:c27d
+
+device link local: fe80:0:a00:27ff:fegg:c27d
+mac address from this:   08-00-27-gg-c2-7d
+
+Q3. Give an example of a “unique-local” IPv6 address.
+fd6b:4104:35ce:0:7508:bc96:6bd3:15ff/64
+
+fc00::/7
+
+1111 1010  // fc
+1111 1011  // fd
+1111 1110  // /7
+
+Q4. Describe a Solicited Node [multicast] address. What is its purpose? Give an
+example. How is it formed?
+
+The solicited node address is the IPv6 version of the ARP (IPv4). Instead of broadcasting to all and filling up a large network with a lot of broadcast traffic, it uses neighbour solicitation to find the requested MAC address. For example station1 wishes to send a message to station 2. Instead of broadcasting to everyone on the network it can send a neighbour solicitation message to the multicast address (the last 24 bits of the IPv6 address). Each device is subscribed to its own multicast address and the switch uses these multicast addresses to populate their CAM tables. Note - multiple devices may have the same solicited node address but it is just a way to reduce the amount of addresses for sending out the neighbour solicitation message rather than broadcasting to all devices.
+
+e.g. ff02::1:ffgg:c27d (the prefix + 24 bits from end of IPv6 address) = the solicited node multicast address for the IPv6 address we want, in this case     
+that is fe80:0:a00:27ff:fegg:c27d. 
+
+Q5. Multicast Listener Discovery version 2 (MLDv2) Snooping is a mandatory feature
+for any switch that wants to support IPv6. What is the motivation for MLDv2
+snooping, which in the IPv4 world we might compare with “IGMP Snooping”? We
+want to see that you understand its purpose with respect to network switches (not
+routers). You may like to include a diagram with a little table showing real IPv6
+multicast addresses (such as two solicited node addresses, and an all-routers
+address (ff02::2) and switch port numbers.
+
+MLDv2 (ff02::16 group) snooping allows switches to populate 
+their CAM tables which is a list of devices by recording their MAC addresses. When IPv6 is on, 
+a MLDv2 packet is sent out to a link local address ff02::16 (which is a 
+group for all devices that understand MLDv2), which are switches that understand IPv6. 
+
+
+Q6. Briefly describe the most important components of a router advertisement.
+
+- IPv6 Source  - link-local unicast address of the router that sent the advertisement.
+- IPv6 Destination - is the destination address for the message (is usually ff02:1) where all hosts on the local network listen on. 
+- Internet Control Message Protocol v6 (ICMPv6) Type - Identifies the type of ICMPv6 message type being
+  transmitted.
+- ICMPv6 Flags - Has flags to indicate the use of stateful or stateless address configuration. 
+- ICMPv6 Option (Prefix information) - Indicates which prefixes are used on the link, which is basically a network address + an interfaces EUI-64 host ID?
+- ICMPv6 Prefix length - Indicates the length of the a particular prefix
+- ICMPv6 Prefix - Most important piece of data in the announcement. It is the prefix being advertised.
+- ICMPv6 Source link-layer address option - Communicates the router's MAC address to all the hosts on the link (similar to an ARP).
+
+Most important: prefixes, how to determine which addresses used and advertised. 
+Neighbour solicitation, router solicitation, router advertisements are all part of Neighbor Discovery of ICMPv6. 
+Devices can send out a router solicitation to get a router advertisement so that it doesn’t have to wait. 
+Router advertisement can be chosen by the router to send by unicast or broadcast 
+depending on the time till next advertisement or even if the request was by a router solicitation.  
+
+
+Q7. Briefly describe Duplicate Address Detection (DAD). Why is it needed and how is it
+performed? What do you think the difference is between a “Tentative” address and
+a “Preferred” address, with regard to DAD?
+
+DAD is used in SLAAC to see if an address is being used. 
+It uses Neighbour solicitation to check if any devices are using the generated address, 
+and if they answer then it will use a different address (generally waits 1 second for a reply). 
+It is needed so that devices end up with different addresses. 
+Tentative address is one that has been selected and needs to be verified by DAD. 
+Once it	 is verified and valid it is called the preferred address and can be used for communication.

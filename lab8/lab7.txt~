@@ -1,0 +1,86 @@
+File System
+-----------------
+Read the ls(1) to familiarise yourself with the available options (don’t try to
+remember them all, except -l (that’s lowercase L, not I), -R, -a and -h).
+Write down the ls command you would use to do the following; most of them will
+require the -l option and generally some others:
+
+Q1.
+
+(a) List the contents of your home directory recursively. You can use either
+«~» or «$HOME» to refer to your home directory from the shell.
+
+
+Aa. ls -R ~ | less
+
+
+(b). List all files, including hidden files and directories, in your home directory,
+non-recursively. Hidden files or directories are those that begin with a dot, and
+are not usually shown in ls output.
+
+Ab. ls -a
+
+
+(c) List the contents of /lib using ls -l /lib. What is meant by the «foo -> bar»
+notation?
+
+Ac. It means the listed file is a symbolic link that points to the file. If the file is open
+the file that the symbolic link points to will be opened.
+
+
+(d) List the files in your home directory, with file sizes shown with human-friendly
+units (ie. bytes, kilobytes, megabytes, gigabytes).
+
+
+Ad. ls -lh
+
+
+
+(e) List the info about a directory, and only that directory, without ls recursing
+into that directory. In other words, the permissions etc. of the directory itself,
+not the contents of the directory.
+The “size” of a directory in the ls listing does not tell you how much disk space
+the contents of the directory consume. Use du -s directory to measure that.
+
+Ae. ls -ld Documents
+
+Special Permissions
+---------------------
+
+Q1. Fill in the blanks to convert between octal and symbolic notation; all but the last
+two you would be likely to find on a real system.
+
+A1.
+644  = rw-r--r--
+755  = rwxr-xr-x
+177  = --xrwxrwx
+4733 = rwsr-xr-x
+3070 = ---rws--T 
+2060 = ---rwS---
+
+Q2. If you look around the typical Unix filesystem long enough, you find some unusual
+permissions. Take for example the permissions that are classically set on the files in
+/usr/games/, and the permissions on some of the files in /var/games/.
+
+A2. 
+
+
+Q3. The files in /var/games/ are scoreboard files, which need to be updateable by the
+games when run as different users. However, we don’t want users to be able to edit
+them by themselves, only by the games that the user is running. Looking at these
+permissions, describe how this works. Hint: users are not meant to be in the
+‘games’ group in order to play games; indeed that would be rather bad.
+
+Assume you see a directory which ls -l describes as «drwxrwsr-x». Write a
+paragraph to completely describe the effect of this permission set.
+You should consult ls(1) for some of the subtleties of the printed permissions with
+regard to special bits and execute bits, if you haven’t already.
+
+
+A3.
+
+
+Q4. Give a typical default umask value and describe its effect.
+
+A4.
+

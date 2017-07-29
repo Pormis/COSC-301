@@ -1,0 +1,16 @@
+DNS using BIND 9
+--------------------
+
+Assessment
+-------------
+1., 2., 3., - screenshots
+
+4. Assume you are providing a file mirroring service for many clients
+(eg. a public Ubuntu mirror). Assume further that you are providing
+mirrors for other distributions. What is the benefit of using the hostname
+«http://ubuntu.example.com/» instead of «http://www.example.com/ubuntu/»?
+Is there a difference? Why might one be more preferable above the other.
+Tip: consider what would need to happen if we wanted to change which server
+offered the Ubuntu repository.
+
+Looking up the hostname to find the mapped ip is easier. If you used the ww.example.com/ubuntu/ then you would have to change the server, but if you used the former you could just add a new mapping?

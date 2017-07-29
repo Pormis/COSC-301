@@ -1,0 +1,18 @@
+Q 1. List briefly the advantages and disadvantages of using sudo as set up on Ubuntu,
+and of leaving the root account disabled. Be prepared to answer questions about
+this at marking-time, to ensure you understand what is being said in the
+documentation.
+
+
+
+Q2. See current folder.
+
+Q3. List five major points of the “How To Ask Questions the Smart Way” that might be of
+particular relevance to a system administrator asking for help. (note that most are
+relevant, I just want to see that you’ve actually read the document)
+
+1. You should try find the answers elsewhere (forums, manuals, web, a friend etc.)
+2. Make sure you fully understand what it is you want to achieve and formulate your question after some thought.
+3. Document the process that you have done (if it is an error, what you did up to when it happened) if it is how to do something where you have looked at what you have found.
+4. Make sure you ask your question at the right place or to the right person.
+5. Make sure your question includes all the information so that the reply can be short an concise and they don't need to ask you more questions (if necessary include code)

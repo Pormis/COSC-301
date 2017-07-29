@@ -1,0 +1,22 @@
+Management of the server ‘server1’
+           Administrator: William Sanson
+           Release Information: Ubuntu 14.04.02 
+           Recent Changes:
+                  29 Match 2017
+
+           Hardware:
+                    CPU: 1 Core
+                    Memory: 1024 MB
+           General Management:
+                   Filesystems: 
+                                ext4 - file system is stored
+                                swap - for virtual memory 
+                   Network Interfaces:
+                           lo - loopback (for testing and processes)
+                           outside - connected to NAT virtualBox (DHCP) 10.0.2.15
+                   Administation Rights:
+                                 How to get them
+                   Software Upgrades:
+                            
+                   
+                   

@@ -1,0 +1,122 @@
+Scheduled Tasks and Log Management
+
+-----------------
+Assessment: Cron
+------------------
+
+Notes:
+Cron:
+- Help you run jobs at scheduled times (mail, downloads, batch files etc)
+- There us a cribtab file that contains all the jobs
+- use -> crontab -e (to edit)
+
+Q1. When will the following crontab entry run?
+    * * 13 jan * command
+
+A1. On the 13 jan at 00:00 - 23:99 every minute of every hour that day, yearly.
+
+Q2. When will the following crontab entry run?
+Notice that both day of week and day of month are specified;
+check crontab(5) for how this edge-case is treated on your system.
+      30 4 1,15 * 5 command
+
+A2. 4:30am on the 1st and 15th of every month, plus every friday.
+
+Q3. Imagine you have a virtualisation host with a lot of identically
+configured virtual machines (guests). You notice that you get massive
+load spikes on a regular basis, and upon investigation during one of
+these load spikes, you determine that they are caused by cron jobs all
+starting at the same time (and thus every machine simultaneously wants
+to wake up and run something, causing the host to become very busy, even
+though each virtual machine has very little to do). How could you improve
+this situation? (You do not need to implement anything for this question,
+just brainstorm some solutions.)
+
+A3. You could change the times at which the cron jobs start. If they arn't
+too import have different jobs alternate on days. You could put the virtual
+machines in batches so only a small number of them are awakened at a time.
+
+-----------------
+Assessment: Syslog
+-----------------
+
+Notes:
+Syslog:
+- BSD Syslog remote logging protocol is implemented in Ubuntu.
+- Because of the remote aspects there are limitaions and problems related
+ to reliability and security.
+- Can use Ubuntu's Upstart system to tell it to stop a part of the system
+  (i.e. # stop tty6)
+- can log using logger -- message
+- can check log using sudo grep -r "what you are looking for" /var/log
+
+------------------
+Assessment: Rotating Logs
+------------------
+
+Q1. On paper, write logrotate entry that rotates the file /var/log/auth.log
+on a weekly basis. This file is where you would find any log messages
+relating to failed login attempts etc. Any further rotation options are up
+to you. Be prepared to rationalise why you chose particular options,
+particularly the number of logs to keep.
+
+A1. /var/log/auth.log {
+    weekly
+    notifempty
+    what else matters?
+    }
+
+Q2 - A2. 
+Cant rememeber ran it too many times and now i have lots of compressed logs
+
+Q3. What would be a good thing to do with archieved logs? What factors might
+you need to take into consideration?
+
+Put them out of sight, out of mind. For logs that may contain sensitive
+information you should probably change the security on them. If the data
+is important then you may need to keep for longer periods than other logs.
+
+
+------------------
+Assessment: Filering Logs
+------------------
+Notes:
+- Two ways of log scanning:
+  - looking for patterns that may constitute something interesting
+  - Or you can filter out entries from the log - can use 'logcheck' to do this
+
+
+cron entry for logcheck - cron.d: logcheck
+
+Q1.
+At what times is logcheck run by crond? Explain how logcheck is being run; you
+need to explain the use of nice as well as -R.
+
+A1. It is run every hour and after every reboot, with cron dealing with running it at
+its specified time. 
+
+
+Q2.
+[Optional] Why should logcheck be run as the “logcheck” user, and not “root” or
+“mal”? What system administration principle does this illustrate?
+
+A2. From the lecture groupIDs
+
+
+Q3.
+Assemble your screenshots of your e-mails and configuration changes you have
+made.
+
+
+A3. OK
+
+---------------
+Regex
+-------------
+Assessment:
+1.
+
+'^\w{3} [ :0-9]{11} belgarath sshd\[[0-9]+\]: Accepted publickey for [0-9a-zA-Z]+
+from 10\.18\.2\..[0-9]+ port [0-9]+ ssh2'
+
+'^\w{3} belgarath su \[[0-9]+\]: + \?\?\?         '

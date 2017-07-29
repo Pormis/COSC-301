@@ -1,0 +1,27 @@
+1.Identify the particular basic link (eg. 02A-1-2-12/A27) that leads to the computer in the video.
+
+02A-A-2-8/B32
+
+2.Although it is not shown in the video, each WAO might have a label identifying the
+other end of the cable. Why can this be useful? It’s not often done, probably because of the amount
+of labelling required. How else might this task be accomplished?
+
+If the WAO are labelled then if something is not working you can easily find which WAO it is and then check
+the corresponding port on the switch. If the WAO is not labbled then you will have to disconnect the ethernet
+cable from the WAO and check the switch to see which light are on. Then you could connect the ethernet cable to the
+WAO to see which port is corresponds to on the switch.
+
+3.Describe what might happen when a duplex mismatch occurs: one end of a link is
+half-duplex, the other full-duplex. Remember that in full-duplex operation,
+operation can go in both directions simultaneously.
+Would a ping test be likely to demonstrate the presence of a duplex mismatch? Why
+or why not. To help you, consider the network traffic that ping generates. If a ping
+test would be insufficient describe a test that would detect the presence of a duplex
+mismatch.
+
+The full duplex will send regardless of whether is is recieving because it thinks that it can send and recieve
+with no problem. The half duplex can only send or recieve not both. This will result is packet loss. A ping test would
+not indicate a duplex mismatch because it sends a packet and waits for its response, which it will recieve.
+To indicate a mismatch we could send a ping requests and note the average time. We could then send request a
+large data file and then another lot of ping requests and note the average time.
+If the average ping time increases then there is a duplex mismatch somewhere.

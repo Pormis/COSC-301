@@ -1,0 +1,30 @@
+Q1. Describe multicast, as opposed to unicast and broadcast.
+Also, give an example of an IPv6 multicast address.
+
+
+Q2. Give an example of a link-local IPv6 address. Briefly describe how it is generally
+formed from the Ethernet MAC address.
+
+
+Q3. Give an example of a “unique-local” IPv6 address.
+
+
+Q4. Describe a Solicited Node [multicast] address. What is its purpose? Give an
+example. How is it formed?
+
+
+Q5. Multicast Listener Discovery version 2 (MLDv2) Snooping is a mandatory feature
+for any switch that wants to support IPv66What is the motivation for MLDv2
+snooping, which in the IPv4 world we might compare with “IGMP Snooping”? We
+want to see that you understand its purpose with respect to network switches (not
+routers). You may like to include a diagram with a little table showing real IPv6
+multicast addresses (such as two solicited node addresses, and an all-routers
+address (ff02::2) and switch port numbers.
+
+
+Q6. Briefly describe the most important components of a router advertisement.
+
+
+Q7. Briefly describe Duplicate Address Detection (DAD). Why is it needed and how is it
+performed? What do you think the difference is between a “Tentative” address and
+a “Preferred” address, with regard to DAD?

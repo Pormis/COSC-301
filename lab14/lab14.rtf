@@ -1,0 +1,35 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+Lab 14 - DHCP\
+\
+1. DNS must be well-configured. \
+
+2. The DHCP server process must start correctly. \
+
+3. Both clients must get their correct addresses: client1 gets bound 
+to its MAC address, and the IP address 192.168.1.11; client2 gets a 
+dynamic address. \
+
+4. What are the risks to a network when using DHCP for configuration of 
+network details? What can be done about those risks while keeping the 
+benefits of DHCP.\
+\
+DHCP is old and uses many old protocols. It runs over IP and UDP which is 
+insecure, and the DHCP protocol has no security provisions. \
+Two main security problems come from unauthorized DCHP servers and DHCP 
+Clients. A DHCP server could respond to a client requests with information 
+that changes the clients configuration and open them up to using dodgy 
+routers. A DHCP client could get the config information when they 
+shouldn\'92t be allowed, or send lots of DHCP clients to use up a DHCP\'92s 
+servers pool of IP addresses.\
+\
+Fixes: DHCP authentication, involving authentication for DHCP messages, 
+and adding security to DHCP - by providing security to lower layers. 
+What else\'85 }

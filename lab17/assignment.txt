@@ -1,0 +1,25 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+2. Do some research into IMAP and POP3, and create a short list of the biggest
+differences between them.
+
+- POP3 downloads the messages from the server and then deletes them, with only one copy remaining on the computer.
+- IMAP can sync to the server and check from multiple devices (mail stays on the server)
+- Sent mail on POP3 also stays on the PC, not on the mail server, where IMAP sent mail stays on the server.
+
+- So, you have to pull you messages from the server when you want to check for new ones, where IMAP syncs. 
+
+3. Configure a typical GUI e-mail program, such as Thunderbird.
+Considering the options you saw when setting up the account, what further
+inprovements could be made?
+
+
+MITM
+
+POPS
+IMAPS
+
+DKIM
+SPF
+DMARC
